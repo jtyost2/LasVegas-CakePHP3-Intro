@@ -21,6 +21,13 @@ class User extends Entity
         'bookmarks' => true,
     ];
 
+    /**
+     * callback method when setting the password field, hashes it using the
+     * DefaultPasswordHasher
+     *
+     * @param string $value the value of the Password fied
+     * @return string the value of the Password field
+     */
     protected function _setPassword($value)
     {
         $hasher = new DefaultPasswordHasher();
