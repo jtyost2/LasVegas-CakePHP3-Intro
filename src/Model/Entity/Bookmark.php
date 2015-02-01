@@ -21,5 +21,6 @@ class Bookmark extends Entity
         'url' => true,
         'user' => true,
         'tags' => true,
+        'created' => true,
     ];
 }

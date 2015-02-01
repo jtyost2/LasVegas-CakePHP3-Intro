@@ -88,4 +88,18 @@ class BookmarksTable extends Table
                 return $q->where(['Tags.title IN' => $options['tags']]);
             });
     }
+
+    public function findUsers(Query $query, array $options)
+    {
+        return $query->where(['user_id' => $options['user_ids']]);
+    }
+
+    public function findCreated(Query $query, array $options)
+    {
+        return $query->where([
+            'created <=' => $options['created'][0]
+        ])->andWhere([
+            'created >=' => $options['created'][1]
+        ]);
+    }
 }

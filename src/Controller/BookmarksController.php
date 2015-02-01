@@ -123,4 +123,18 @@ class BookmarksController extends AppController
         ]);
         $this->set(compact('bookmarks', 'tags'));
     }
+
+    public function recent()
+    {
+        $bookmarks = $this->Bookmarks->find('created', [
+            'created' => array(
+                date("Y-m-d H:i:s", time()),
+                date("Y-m-d H:i:s", strtotime("-1 week")),
+            )
+        ])->find('users', [
+            'user_ids' => 2
+        ]);
+        $this->set(compact('bookmarks'));
+
+    }
 }

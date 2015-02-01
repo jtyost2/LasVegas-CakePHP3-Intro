@@ -46,6 +46,7 @@ Router::scope(
     ['controller' => 'Bookmarks'],
     function ($routes) {
         $routes->connect('/tagged/*', ['action' => 'tags']);
+        $routes->connect('/recent', ['action' => 'recent']);
     }
 );
 
